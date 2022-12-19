@@ -1,0 +1,27 @@
+{
+    "name": "tungnguyen/temporary-command",
+    "description": "Laravel base temporary command",
+    "type": "library",
+    "require": {
+        "laravel/framework": "^8.0.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tungnguyen\\TemporaryCommand\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tungnguyen",
+            "email": "tungnn.hn@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TungNguyen\\TemporaryCommand\\App\\Providers\\TemporaryCommandServiceProvider"
+            ]
+        }
+    }
+}

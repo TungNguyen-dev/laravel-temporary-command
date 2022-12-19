@@ -1,0 +1,18 @@
+<?php
+
+namespace {{ namespace }};
+
+use TungNguyen\TemporaryCommand\App\Console\Commands\BaseCommand;
+
+class {{ class }} extends BaseCommand
+{
+    /**
+     * Execute the console command.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        //
+    }
+}
