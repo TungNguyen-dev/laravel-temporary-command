@@ -46,4 +46,13 @@ trait ProgressBarTrait
         $progressBar->setMessage('Task is finished!');
         $progressBar->finish();
     }
+
+    /**
+     * @param ProgressBar $progressBar
+     * @return void
+     */
+    public function advanceProgress(ProgressBar $progressBar): void
+    {
+        $progressBar->advance();
+    }
 }

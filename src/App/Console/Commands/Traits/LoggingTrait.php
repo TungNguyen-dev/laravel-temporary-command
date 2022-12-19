@@ -39,7 +39,7 @@ trait LoggingTrait
      */
     private function getPath(string $type): string
     {
-        $logName = $this->getSignature() . '-' . $this->getExecutedTime();
+        $logName = $this->getLogName() . '-' . $this->getExecutedTime();
 
         return storage_path("logs/$logName.$type");
     }

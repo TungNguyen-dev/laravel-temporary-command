@@ -24,7 +24,7 @@ class TemporaryCommandServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../Stubs/' => $this->app->basePath().'stubs',
+            __DIR__.'/../../Stubs/' => $this->app->basePath().'/stubs/',
         ], 'stubs');
     }
 }

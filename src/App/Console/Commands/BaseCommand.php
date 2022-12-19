@@ -24,12 +24,18 @@ class BaseCommand extends Command
     protected $signature;
 
     /**
+     * @var string
+     */
+    protected $logName;
+
+    /**
      * BaseCommand Constructor
      */
     public function __construct()
     {
         $this->setExecutedTime();
         $this->setSignature();
+        $this->setLogName();
 
         parent::__construct();
     }
@@ -67,11 +73,27 @@ class BaseCommand extends Command
     }
 
     /**
+     * @return string
+     */
+    public function getLogName(): string
+    {
+        return $this->logName;
+    }
+
+    /**
+     * @return void
+     */
+    public function setLogName()
+    {
+        $this->logName = $this->getClassNameWithoutNamespace();
+    }
+
+    /**
      * @return Stringable
      */
     private function getClassNameWithoutNamespace(): Stringable
     {
-        $classNameArr = explode('\\', self::class);
+        $classNameArr = explode('\\', static::class);
 
         return Str::of($classNameArr[array_key_last($classNameArr)])
             ->replace('Command', '')
