@@ -25,6 +25,6 @@ class TemporaryCommandServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../Stubs/' => $this->app->basePath().'/stubs/',
-        ], 'stubs');
+        ]);
     }
 }
