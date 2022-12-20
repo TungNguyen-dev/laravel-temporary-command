@@ -57,4 +57,38 @@ trait LoggingTrait
         fputcsv($fp, $message);
         fclose($fp);
     }
+    
+    /**
+     * @param string $path
+     * @param string $type
+     * @return array
+     * @throws Exception
+     */
+    public function getDataFromFile(string $path, string $type = 'csv'): array
+    {
+        $method = 'getDataFrom' . Str::of($type)->camel();
+
+        if (!method_exists(self::class, $method)) {
+            throw new Exception('Not found method');
+        }
+
+        return $this->{$method}($path, $type);
+    }
+
+    /**
+     * @param string $path
+     * @return array
+     */
+    private function getDataFromCsv(string $path): array
+    {
+        $data = [];
+
+        $fp = fopen($path, 'r');
+        while (($row = fgetcsv($fp)) !== false) {
+            $data[] = $row;
+        }
+        fclose($fp);
+
+        return $data;
+    }
 }
